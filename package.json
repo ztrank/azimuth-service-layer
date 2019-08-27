@@ -1,0 +1,47 @@
+{
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "description": "",
+  "author": "ztrank",
+  "repository": {
+    "url": "https://github.com/ztrank/azimuth-service-layer.git",
+    "type": "git"
+  },
+  "homepage": "https://github.com/ztrank/azimuth-service-layer#readme",
+  "name": "azimuth-service-layer",
+  "bugs": {
+    "url": "https://github.com/ztrank/azimuth-service-layer/issues"
+  },
+  "version": "0.0.0",
+  "scripts": {
+    "lint": " tslint -p tsconfig.json",
+    "prepublishOnly": "npm test && npm run build && npm run lint",
+    "prepare": "",
+    "preversion": "npm test && npm run build && npm run lint",
+    "build": "rmdir dist /s /q && tsc",
+    "version": "git add -A src",
+    "test": "jest",
+    "postversion": "git push && git push --tags",
+    "azup": "cd src/public/auth-service && azup && cd .. && cd character-service && azup && cd .. && cd environment-service && azup && cd .. && cd player-service && azup && cd .. && cd .. && cd .."
+  },
+  "dependencies": {
+    "rxjs": "^6.5.2",
+    "reflect-metadata": "^0.1.13",
+    "inversify": "^5.0.1"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^12.7.2",
+    "ts-jest": "^24.0.2",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "jest": "^24.9.0",
+    "tslint": "^5.19.0",
+    "@babel/preset-typescript": "^7.3.3",
+    "@types/jest": "^24.0.18",
+    "typescript": "^3.5.3"
+  }
+}

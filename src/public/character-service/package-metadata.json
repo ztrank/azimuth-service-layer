@@ -1,0 +1,8 @@
+{
+    "name": "azimuth-character-service",
+    "importName": "CharacterServiceLayer",
+    "version": "0.1.0",
+    "author":"ztrank",
+    "repository": "",
+    "directory": "public"
+}
