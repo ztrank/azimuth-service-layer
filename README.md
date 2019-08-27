@@ -14,9 +14,12 @@
 5. Typed responses
 
 ## What does this expose
-1. Typed Requests
-2. Typed Responses
-3. Typed Services
+1. In Individual Packages:
+    1. Typed Requests
+    2. Typed Responses
+    3. Typed Services
+2. In ServiceLayer package
+    1. ServiceFactory
 
 ## What does a Service Factory look like?
 `ServiceFactory<T>(schema: string): Observable<T>;`

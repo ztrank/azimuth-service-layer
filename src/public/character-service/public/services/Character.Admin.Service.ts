@@ -1,7 +1,6 @@
-import { CharacterService } from './Character.Service';
 import { Observable } from 'rxjs';
 
-export interface CharacterAdminService extends CharacterService {
+export interface CharacterAdminService {
     assignSophontAttribute(sophontId: number, attributeId: number, modifier: number): Observable<void>;
     assignSophontSkill(sophontId: number, skillId: number, skillModifier: number, normallyOn: boolean, onConditionId: number, offConditionId: number): Observable<void>;
     deleteAttribute(attributeId: number): Observable<void>;

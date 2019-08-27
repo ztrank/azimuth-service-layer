@@ -8,9 +8,9 @@ export interface AuthAdminService {
     deleteRole(roleId: number): Observable<void>;
     getProviders(): Observable<Provider[]>;
     getRoles(): Observable<Role[]>;
-    getUserRoles(): Observable<Role[]>;
+    getUserRoles(userId: number): Observable<Role[]>;
     getUsers(): Observable<User[]>;
     insProvider(providerName: string): Observable<number>;
-    revokeRole(): Observable<void>;
+    revokeRole(roleId: number, userId: number): Observable<void>;
     upsertRole(id: number | undefined, name: string, defaultRole: boolean, description: string): Observable<number>;
 }

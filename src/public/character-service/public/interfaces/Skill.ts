@@ -1,8 +1,8 @@
 export interface Skill {
     id: number;
     groupId?: number;
-    descriptionId?: string;
-    groupDescriptionId?: string;
+    descriptionId?: number;
+    groupDescriptionId?: number;
     groupName: string;
     name: string;
     fullName: string;

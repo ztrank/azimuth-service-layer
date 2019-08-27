@@ -7,11 +7,11 @@ export interface Procedures {
     findUser(providerName: string, providerUserId: string): Observable<Responses.FindUser>;
     getProviders(): Observable<Responses.GetProviders>;
     getRoles(): Observable<Responses.GetRoles>;
-    getUserRoles(): Observable<Responses.GetRoles>;
+    getUserRoles(userId: number): Observable<Responses.GetRoles>;
     getUsers(): Observable<Responses.GetUsers>;
     insProvider(providerName: string): Observable<Responses.InsertProvider>;
     registerUser(providerName: string, providerUserId: string, username: string): Observable<Responses.RegisterUser>;
-    revokeRole(): Observable<Responses.Void>;
+    revokeRole(roleId: number, userId: number): Observable<Responses.Void>;
     testUsername(username: string): Observable<Responses.TestUsername>;
     upsertRole(id: number | undefined, name: string, defaultRole: 'Y' | 'N', description: string): Observable<Responses.UpsertRole>;
 }

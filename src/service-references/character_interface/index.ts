@@ -23,8 +23,8 @@ export namespace Responses {
     export type Void = [];
     export type Attributes = [Types.Attribute[]];
     export type Skills = [Types.Skill[]];
-    export type Sophonts = [Types.Sophont[], Types.SophontAttribute[], Types.SophontSkill[]];
-    export type Sophont = [Types.Sophont[]];
+    export type Sophont = [Types.Sophont[], Types.SophontAttribute[], Types.SophontSkill[]];
+    export type Sophonts = [Types.Sophont[]];
     export type Id = [Types.Id[]];
 }
 

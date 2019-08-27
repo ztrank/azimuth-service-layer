@@ -1,7 +1,7 @@
 import { TravellerAttribute } from './Traveller.Attribute';
 import { TravellerSkill } from './Traveller.Skill';
 
-interface Name {
+export interface Name {
     first: string;
     last: string;
     nickname: string;
