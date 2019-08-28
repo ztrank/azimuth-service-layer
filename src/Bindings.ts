@@ -21,11 +21,11 @@ const serviceSymbols: {[service: string]: symbol} = {
 export function Bind(
     container: Container,
     dataLayerBinding: string | symbol,
-    executingUserId: number
+    contextBinding: string | symbol
 ): {[service: string]: symbol} {
 
     container.bind(Symbols.DataLayerFactory).toService(dataLayerBinding);
-    container.bind(Symbols.UserId).toConstantValue(executingUserId);
+    container.bind(Symbols.HttpContext).toService(contextBinding);
     container.bind(serviceSymbols.AuthAdmin).to(AuthAdminServiceImpl);
     container.bind(serviceSymbols.Auth).to(AuthServiceImpl);
     container.bind(serviceSymbols.CharacterAdmin).to(CharacterAdminServiceImpl);
