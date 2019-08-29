@@ -7,32 +7,27 @@ import { CharacterServiceImpl } from './service-layer/services/implementations/C
 import { EnvironmentAdminServiceImpl } from './service-layer/services/implementations/Environment.Admin.Service';
 import { EnvironmentServiceImpl } from './service-layer/services/implementations/Environment.Service';
 import { TravellerServiceImpl } from './service-layer/services/implementations/Traveller.Service';
+import { AuthServices } from './public/auth-service/public';
+import { CharacterServices } from './public/character-service/public';
+import { EnvironmentServices } from './public/environment-service/public';
+import { PlayerServices } from './public/player-service/public';
 
-const serviceSymbols: {[service: string]: symbol} = {
-    AuthAdmin: Symbol.for('AuthAdmin'),
-    Auth: Symbol.for('Auth'),
-    CharacterAdmin: Symbol.for('CharacterAdmin'),
-    Character: Symbol.for('Character'),
-    EnvironmentAdmin: Symbol.for('EnvironmentAdmin'),
-    Environment: Symbol.for('Environment'),
-    Traveller: Symbol.for('Traveller')
-};
+
 
 export function Bind(
     container: Container,
     dataLayerBinding: string | symbol,
     contextBinding: string | symbol
-): {[service: string]: symbol} {
+): void {
 
     container.bind(Symbols.DataLayerFactory).toService(dataLayerBinding);
     container.bind(Symbols.HttpContext).toService(contextBinding);
-    container.bind(serviceSymbols.AuthAdmin).to(AuthAdminServiceImpl);
-    container.bind(serviceSymbols.Auth).to(AuthServiceImpl);
-    container.bind(serviceSymbols.CharacterAdmin).to(CharacterAdminServiceImpl);
-    container.bind(serviceSymbols.Character).to(CharacterServiceImpl);
-    container.bind(serviceSymbols.EnvironmentAdmin).to(EnvironmentAdminServiceImpl);
-    container.bind(serviceSymbols.Environment).to(EnvironmentServiceImpl);
-    container.bind(serviceSymbols.Traveller).to(TravellerServiceImpl);
+    container.bind(AuthServices.AuthAdminService).to(AuthAdminServiceImpl);
+    container.bind(AuthServices.AuthService).to(AuthServiceImpl);
+    container.bind(CharacterServices.CharacterAdminService).to(CharacterAdminServiceImpl);
+    container.bind(CharacterServices.CharacterService).to(CharacterServiceImpl);
+    container.bind(EnvironmentServices.EnvironmentAdminService).to(EnvironmentAdminServiceImpl);
+    container.bind(EnvironmentServices.EnvironmentService).to(EnvironmentServiceImpl);
+    container.bind(PlayerServices.TravellerService).to(TravellerServiceImpl);
     
-    return serviceSymbols;    
 }
