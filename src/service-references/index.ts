@@ -1,3 +1,4 @@
+import * as Exceptions from './azimuth-exceptions';
 import * as Http from './azimuth-http';
 import * as PlayerInterface from './player_interface';
 import * as EnvironmentInterface from './environment_interface';
@@ -11,3 +12,4 @@ export { CharacterInterface }
 export { EnvironmentInterface }
 export { PlayerInterface }
 export { Http }
+export { Exceptions }
