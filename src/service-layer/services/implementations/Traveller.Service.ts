@@ -1,21 +1,21 @@
 import { injectable, inject, interfaces } from 'inversify';
 import { TravellerService } from '../../../public/player-service/public';
 import { PlayerInterface, DataLayer } from '../../../service-references';
-import { Symbols } from '../../../symbols';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Traveller } from '../../responses/implementations/player/Traveller';
 import { HttpContext } from '../../../service-references/azimuth-http';
 import { HttpExceptions, Exception } from '../../../service-references/azimuth-exceptions';
 import { EnsureLength } from '../../operators/ensure.length';
+import { TYPES } from '../../../service-references/azimuth-types';
 
 @injectable()
 export class TravellerServiceImpl implements TravellerService {
     private dataLayer: PlayerInterface.Procedures;
     
     public constructor(
-        @inject(Symbols.DataLayerFactory) dataLayerFactory: DataLayer.DataLayerFactory<PlayerInterface.Procedures>,
-        @inject(Symbols.HttpContext) private context: HttpContext,
+        @inject(TYPES.DataLayerFactory) dataLayerFactory: DataLayer.DataLayerFactory<PlayerInterface.Procedures>,
+        @inject(TYPES.HttpContext) private context: HttpContext,
         @inject(HttpExceptions.NotFoundException) private NotFoundException: interfaces.Newable<Exception>
     ) {
         this.dataLayer = dataLayerFactory('player_interface');

@@ -1,3 +1,4 @@
+import * as Bindings from './azimuth-types';
 import * as Exceptions from './azimuth-exceptions';
 import * as Http from './azimuth-http';
 import * as PlayerInterface from './player_interface';
@@ -13,3 +14,4 @@ export { EnvironmentInterface }
 export { PlayerInterface }
 export { Http }
 export { Exceptions }
+export { Bindings }

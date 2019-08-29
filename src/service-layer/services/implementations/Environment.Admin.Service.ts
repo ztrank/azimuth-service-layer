@@ -1,11 +1,11 @@
 import { injectable, inject, interfaces } from 'inversify';
 import { EnvironmentInterface, DataLayer } from '../../../service-references';
-import { Symbols } from '../../../symbols';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { EnvironmentAdminService } from '../../../public/environment-service/public';
 import { EnsureLength } from '../../operators/ensure.length';
 import { HttpExceptions, Exception } from '../../../service-references/azimuth-exceptions';
+import { TYPES } from '../../../service-references/azimuth-types';
 
 @injectable()
 export class EnvironmentAdminServiceImpl implements EnvironmentAdminService {
@@ -13,7 +13,7 @@ export class EnvironmentAdminServiceImpl implements EnvironmentAdminService {
     private dataLayer: EnvironmentInterface.Procedures;
     
     public constructor(
-        @inject(Symbols.DataLayerFactory) dataLayerFactory: DataLayer.DataLayerFactory<EnvironmentInterface.Procedures>,
+        @inject(TYPES.DataLayerFactory) dataLayerFactory: DataLayer.DataLayerFactory<EnvironmentInterface.Procedures>,
         @inject(HttpExceptions.NotFoundException) private NotFoundException: interfaces.Newable<Exception>
     ) {
         this.dataLayer = dataLayerFactory('environment_interface');

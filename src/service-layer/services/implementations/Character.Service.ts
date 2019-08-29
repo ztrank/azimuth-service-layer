@@ -1,7 +1,6 @@
 import { injectable, inject, interfaces } from 'inversify';
 import { CharacterService } from '../../../public/character-service/public';
 import { CharacterInterface, DataLayer } from '../../../service-references';
-import { Symbols } from '../../../symbols';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Attribute } from '../../responses/implementations/character/Attribute';
@@ -9,6 +8,7 @@ import { Skill } from '../../responses/implementations/character/Skill';
 import { Sophont } from '../../responses/implementations/character/Sophont';
 import { Exception, HttpExceptions } from '../../../service-references/azimuth-exceptions';
 import { EnsureLength } from '../../operators/ensure.length';
+import { TYPES } from '../../../service-references/azimuth-types';
 
 @injectable()
 export class CharacterServiceImpl implements CharacterService {
@@ -16,7 +16,7 @@ export class CharacterServiceImpl implements CharacterService {
     private dataLayer: CharacterInterface.Procedures;
     
     public constructor(
-        @inject(Symbols.DataLayerFactory) dataLayerFactory: DataLayer.DataLayerFactory<CharacterInterface.Procedures>,
+        @inject(TYPES.DataLayerFactory) dataLayerFactory: DataLayer.DataLayerFactory<CharacterInterface.Procedures>,
         @inject(HttpExceptions.NotFoundException) private NotFoundException: interfaces.Newable<Exception>,
         @inject(HttpExceptions.InternalServerException) private InternalServerException: interfaces.Newable<Exception>
     ) {

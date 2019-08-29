@@ -1,6 +1,5 @@
 import { injectable, inject, interfaces } from 'inversify';
 import { AuthAdminService } from '../../../public/auth-service/public';
-import { Symbols } from '../../../symbols';
 import { AuthInterface, DataLayer } from '../../../service-references';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
@@ -9,13 +8,14 @@ import { Role } from '../../responses/implementations/auth/Role';
 import { User } from '../../responses/implementations/auth/User';
 import { Exception, HttpExceptions } from '../../../service-references/azimuth-exceptions';
 import { EnsureLength } from '../../operators/ensure.length';
+import { TYPES } from '../../../service-references/azimuth-types';
 
 @injectable()
 export class AuthAdminServiceImpl implements AuthAdminService {
     private dataLayer: AuthInterface.Procedures;
     
     public constructor(
-        @inject(Symbols.DataLayerFactory) dataLayerFactory: DataLayer.DataLayerFactory<AuthInterface.Procedures>,
+        @inject(TYPES.DataLayerFactory) dataLayerFactory: DataLayer.DataLayerFactory<AuthInterface.Procedures>,
         @inject(HttpExceptions.NotFoundException) private NotFoundException: interfaces.Newable<Exception>,
         @inject(HttpExceptions.InternalServerException) private InternalServerException: interfaces.Newable<Exception>
     ) {

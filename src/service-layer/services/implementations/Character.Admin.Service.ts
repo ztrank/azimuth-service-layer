@@ -1,18 +1,18 @@
 import { CharacterAdminService } from '../../../public/character-service/public';
 import { injectable, inject, interfaces } from 'inversify';
 import { CharacterInterface, DataLayer } from '../../../service-references';
-import { Symbols } from '../../../symbols';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Exception, HttpExceptions } from '../../../service-references/azimuth-exceptions';
 import { EnsureLength } from '../../operators/ensure.length';
+import { TYPES } from '../../../service-references/azimuth-types';
 
 @injectable()
 export class CharacterAdminServiceImpl implements CharacterAdminService {
     private dataLayer: CharacterInterface.Procedures;
     
     public constructor(
-        @inject(Symbols.DataLayerFactory) dataLayerFactory: DataLayer.DataLayerFactory<CharacterInterface.Procedures>,
+        @inject(TYPES.DataLayerFactory) dataLayerFactory: DataLayer.DataLayerFactory<CharacterInterface.Procedures>,
         @inject(HttpExceptions.InternalServerException) private InternalServerException: interfaces.Newable<Exception>
     ) {
         this.dataLayer = dataLayerFactory('character_interface');
