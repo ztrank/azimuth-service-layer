@@ -12,7 +12,7 @@
   "bugs": {
     "url": "https://github.com/ztrank/azimuth-service-layer/issues"
   },
-  "version": "0.0.0",
+  "version": "0.1.0",
   "scripts": {
     "lint": " tslint -p tsconfig.json",
     "prepublishOnly": "npm test && npm run build && npm run lint",
