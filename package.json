@@ -8,7 +8,7 @@
     "type": "git"
   },
   "homepage": "https://github.com/ztrank/azimuth-service-layer#readme",
-  "name": "azimuth-service-layer",
+  "name": "@project-azimuth/service-layer",
   "bugs": {
     "url": "https://github.com/ztrank/azimuth-service-layer/issues"
   },
