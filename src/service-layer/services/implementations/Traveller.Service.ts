@@ -32,7 +32,7 @@ export class TravellerServiceImpl implements TravellerService {
     public getTraveller(travellerId: number): Observable<Traveller> {
         return this.dataLayer.getTraveller(<number>this.context.CurrentUser.id, travellerId)
             .pipe(
-                EnsureLength(this.NotFoundException, 2, 1),
+                EnsureLength(this.NotFoundException, 3, 1),
                 map(res => new Traveller(res[0][0], res[2], res[1]))
             );
     }

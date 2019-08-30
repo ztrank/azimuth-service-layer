@@ -16,5 +16,10 @@ export class Traveller {
         this.sophontId = trav.sophont_id;
         this.attributes = attrs ? attrs.map(a => new TravellerAttribute(a)) : undefined;
         this.skills = skills ? skills.map(s => new TravellerSkill(s)) : undefined;
+        this.name = {
+            first: trav.traveller_first_name,
+            last: trav.traveller_last_name,
+            nickname: trav.traveller_nick_name
+        };
     }
 }
