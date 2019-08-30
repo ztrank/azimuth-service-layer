@@ -6,4 +6,5 @@ export interface AuthService {
     findUser(providerName: string, providerUserId: string): Observable<User>;
     registerUser(providerName: string, providerUserId: string, username: string): Observable<number>;
     testUsername(username: string): Observable<boolean>;
+    getUser(userId: number): Observable<User>;
 }

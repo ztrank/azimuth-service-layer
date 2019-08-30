@@ -52,4 +52,12 @@ export class AuthServiceImpl implements AuthService {
                 map(r => r[0][0].available === 'Y')
             );
     }
+
+    public getUser(userId: number): Observable<User> {
+        return this.dataLayer.getUser(userId)
+            .pipe(
+                EnsureLength(this.NotFoundException, 2, 1),
+                map(r => new User(r[0][0], r[1]))
+            )
+    }
 }
