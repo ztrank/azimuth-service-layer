@@ -10,6 +10,7 @@ export interface AuthAdminService {
     getProvider(providerId: number): Observable<Provider>;
     getRoles(): Observable<Role[]>;
     getRole(roleId: number): Observable<Role>;
+    getRoleUsers(roleId: number): Observable<User[]>;
     getUserRoles(userId: number): Observable<Role[]>;
     getUsers(): Observable<User[]>;
     insProvider(providerName: string): Observable<number>;

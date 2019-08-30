@@ -62,6 +62,13 @@ export class AuthAdminServiceImpl implements AuthAdminService {
                 map(res => new Role(res[0][0]))
             )
     }
+    public getRoleUsers(roleId: number): Observable<User[]> {
+        return this.dataLayer.getRoleUsers(roleId)
+            .pipe(
+                EnsureLength(this.InternalServerException, 1),
+                map(res => res[0].map(r => new User(r)))
+            )
+    }
     public getUserRoles(userId: number): Observable<Role[]> {
         return this.dataLayer.getUserRoles(userId)
             .pipe(

@@ -9,9 +9,10 @@ export interface Procedures {
     getProvider(providerId: number): Observable<Responses.GetProviders>;
     getRoles(): Observable<Responses.GetRoles>;
     getRole(roleId: number): Observable<Responses.GetRoles>;
+    getRoleUsers(roleId: number): Observable<Responses.GetUsers>;
     getUserRoles(userId: number): Observable<Responses.GetRoles>;
     getUsers(): Observable<Responses.GetUsers>;
-    getUser(userId: number): Observable<Responses.GetUsers>;
+    getUser(userId: number): Observable<Responses.FindUserAndRoles>;
     insProvider(providerName: string): Observable<Responses.InsertProvider>;
     registerUser(providerName: string, providerUserId: string, username: string): Observable<Responses.RegisterUser>;
     revokeRole(roleId: number, userId: number): Observable<Responses.Void>;
