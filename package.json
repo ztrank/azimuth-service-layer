@@ -22,7 +22,7 @@
     "version": "git add -A src",
     "test": "jest",
     "postversion": "git push && git push --tags",
-    "azup": "cd src/public/auth-service && azup && cd .. && cd character-service && azup && cd .. && cd environment-service && azup && cd .. && cd player-service && azup && cd .. && cd .. && cd .."
+    "azup": "cd src/public/auth-service && azup && cd .. && cd character-service && azup && cd .. && cd environment-service && azup && cd .. && cd player-service && azup && cd .. && cd media-service && azup && cd .. && cd .. && cd .."
   },
   "dependencies": {
     "rxjs": "^6.5.2",

@@ -15,7 +15,8 @@ export class EnvironmentServiceImpl implements EnvironmentService {
     
     public constructor(
         @inject(TYPES.DataLayerFactory) dataLayerFactory: DataLayer.DataLayerFactory<EnvironmentInterface.Procedures>,
-        @inject(HttpExceptions.InternalServerException) private InternalServerException: interfaces.Newable<Exception>
+        @inject(HttpExceptions.InternalServerException) private InternalServerException: interfaces.Newable<Exception>,
+        @inject(HttpExceptions.NotFoundException) private NotFoundException: interfaces.Newable<Exception>
     ) {
         this.dataLayer = dataLayerFactory('environment_interface');
     }
@@ -25,6 +26,14 @@ export class EnvironmentServiceImpl implements EnvironmentService {
             .pipe(
                 EnsureLength(this.InternalServerException, 1),
                 map(res => res[0].map(r => new Condition(r)))
+            )
+    }
+
+    public getCondition(conditionId: number): Observable<Condition> {
+        return this.dataLayer.getCondition(conditionId)
+            .pipe(
+                EnsureLength(this.NotFoundException, 1, 1),
+                map(res => new Condition(res[0][0]))
             )
     }
 }

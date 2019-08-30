@@ -6,10 +6,12 @@ export interface Procedures {
     findUserAndRoles(providerName: string, providerUserId: string): Observable<Responses.FindUserAndRoles>;
     findUser(providerName: string, providerUserId: string): Observable<Responses.FindUser>;
     getProviders(): Observable<Responses.GetProviders>;
+    getProvider(providerId: number): Observable<Responses.GetProviders>;
     getRoles(): Observable<Responses.GetRoles>;
+    getRole(roleId: number): Observable<Responses.GetRoles>;
     getUserRoles(userId: number): Observable<Responses.GetRoles>;
     getUsers(): Observable<Responses.GetUsers>;
-    getUser(userId: number): Observable<Responses.GetUser>;
+    getUser(userId: number): Observable<Responses.GetUsers>;
     insProvider(providerName: string): Observable<Responses.InsertProvider>;
     registerUser(providerName: string, providerUserId: string, username: string): Observable<Responses.RegisterUser>;
     revokeRole(roleId: number, userId: number): Observable<Responses.Void>;
@@ -24,7 +26,6 @@ export namespace Responses {
     export type GetProviders = [Types.Provider[]];
     export type GetRoles = [Types.Role[]];
     export type GetUsers = [Types.User[]];
-    export type GetUser = [Types.User[], Types.Role[]];
     export type InsertProvider = [Types.ProviderId[]];
     export type RegisterUser = [Types.UserId[]];
     export type TestUsername = [Types.TestUsername[]];

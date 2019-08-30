@@ -41,12 +41,26 @@ export class AuthAdminServiceImpl implements AuthAdminService {
                 map(res => res[0].map(r => new Provider(r)))
             );
     }
+    public getProvider(providerId: number): Observable<Provider> {
+        return this.dataLayer.getProvider(providerId)
+            .pipe(
+                EnsureLength(this.NotFoundException, 1, 1),
+                map(res => new Provider(res[0][0]))
+            )
+    }
     public getRoles(): Observable<Role[]> {
         return this.dataLayer.getRoles()
             .pipe(
                 EnsureLength(this.NotFoundException, 1),
                 map(res => res[0].map(r => new Role(r)))
             );
+    }
+    public getRole(roleId: number): Observable<Role> {
+        return this.dataLayer.getRole(roleId)
+            .pipe(
+                EnsureLength(this.NotFoundException, 1, 1),
+                map(res => new Role(res[0][0]))
+            )
     }
     public getUserRoles(userId: number): Observable<Role[]> {
         return this.dataLayer.getUserRoles(userId)

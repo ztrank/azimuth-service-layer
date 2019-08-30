@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 export interface Procedures {
     deleteCondition(conditionId: number): Observable<Responses.Void>;
     getConditions(): Observable<Responses.Condition>;
+    getCondition(conditionId: number): Observable<Responses.Condition>;
     upsertCondition(id: number | undefined, name: string, decription: string): Observable<Responses.Id>;
 }
 

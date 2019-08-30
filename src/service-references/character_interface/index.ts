@@ -9,8 +9,11 @@ export interface Procedures {
     deleteSkill(skillId: number): Observable<Responses.Void>;
     findAttribute(attributeShort: string): Observable<Responses.Attributes>;
     getAttributes(): Observable<Responses.Attributes>;
+    getAttribute(attributeId: number): Observable<Responses.Attributes>;
     getSkill(skillId: number): Observable<Responses.Skills>;
     getSkills(): Observable<Responses.Skills>;
+    getSkillGroups(): Observable<Responses.SkillGroups>;
+    getSkillGroup(skillGroupId: number): Observable<Responses.SkillGroups>;
     getSophont(sophontId: number): Observable<Responses.Sophont>;
     getSophonts(): Observable<Responses.Sophonts>;
     upsertAttribute(id: number | undefined, name: string, short: string, description: string): Observable<Responses.Id>;
@@ -26,6 +29,7 @@ export namespace Responses {
     export type Sophont = [Types.Sophont[], Types.SophontAttribute[], Types.SophontSkill[]];
     export type Sophonts = [Types.Sophont[]];
     export type Id = [Types.Id[]];
+    export type SkillGroups = [Types.SkillGroup[]];
 }
 
 export namespace Types {
@@ -45,6 +49,12 @@ export namespace Types {
         skill_full_name: string;
         skill_group_name: string;
         skill_name: string;
+    }
+
+    export interface SkillGroup {
+        skill_group_id: number;
+        description_id: number;
+        skill_group_name: string;
     }
 
     export interface Sophont {

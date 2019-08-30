@@ -1,3 +1,4 @@
+import * as MediaInterface from './media_interface';
 import * as Bindings from './azimuth-types';
 import * as Exceptions from './azimuth-exceptions';
 import * as Http from './azimuth-http';
@@ -15,3 +16,4 @@ export { PlayerInterface }
 export { Http }
 export { Exceptions }
 export { Bindings }
+export { MediaInterface }

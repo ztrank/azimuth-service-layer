@@ -9,6 +9,7 @@ import { Sophont } from '../../responses/implementations/character/Sophont';
 import { Exception, HttpExceptions } from '../../../service-references/azimuth-exceptions';
 import { EnsureLength } from '../../operators/ensure.length';
 import { TYPES } from '../../../service-references/azimuth-types';
+import { SkillGroup } from '../../responses/implementations/character/Skill.Group';
 
 @injectable()
 export class CharacterServiceImpl implements CharacterService {
@@ -36,6 +37,28 @@ export class CharacterServiceImpl implements CharacterService {
                 EnsureLength(this.InternalServerException, 1),
                 map(res => res[0].map(r => new Attribute(r)))
             );
+    }
+
+    public getAttribute(attributeId: number): Observable<Attribute> {
+        return this.dataLayer.getAttribute(attributeId)
+            .pipe(
+                EnsureLength(this.NotFoundException, 1, 1),
+                map(r => new Attribute(r[0][0]))
+            );
+    }
+    public getSkillGroups(): Observable<SkillGroup[]> {
+        return this.dataLayer.getSkillGroups()
+            .pipe(
+                EnsureLength(this.InternalServerException, 1),
+                map(res => res[0].map(r => new SkillGroup(r)))
+            )
+    }
+    public getSkillGroup(skillGroupId: number): Observable<SkillGroup> {
+        return this.dataLayer.getSkillGroup(skillGroupId)
+            .pipe(
+                EnsureLength(this.InternalServerException, 1, 1),
+                map(res => new SkillGroup(res[0][0]))
+            )
     }
     public getSkill(skillId: number): Observable<Skill> {
         return this.dataLayer.getSkill(skillId)
