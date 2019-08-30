@@ -1,7 +1,7 @@
 {
     "name": "azimuth-media-service",
     "importName": "MediaServiceLayer",
-    "version": "0.1.1",
+    "version": "1.0.0",
     "author":"ztrank",
     "repository": "https://github.com/ztrank/azimuth-service-layer.git",
     "directory": "public"
