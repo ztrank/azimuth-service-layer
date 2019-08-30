@@ -15,5 +15,6 @@ export const TYPES = Object.freeze({
     CharacterService: 'CharacterService',
     EnvironmentAdminService: 'EnvironmentAdminService',
     EnvironmentService: 'EnvironmentService',
-    TravellerService: 'TravellerService'
+    TravellerService: 'TravellerService',
+    MediaService: 'MediaService'
 });
