@@ -186,3 +186,32 @@ test('EnsureLength - 3|1|2|3 - Failure 4', (done) => {
         EnsureLength(Exception, 3, 1, 2, 3)
     ).subscribe(expectError(done));
 });
+
+
+test('EnsureLength - 3|1 From Actual Results', done => {
+    const returnValue = [
+        [{traveller_id: 1, user_id: 3, sophont_id: 1, traveller_first_name: 'Kevin', traveller_last_name: 'Griswal', traveller_nick_name:'Kev'}],
+        [
+            {traveller_id: 1, skill_id: 1, ranks: 0},
+            {traveller_id: 1, skill_id: 2, ranks: 1},
+            {traveller_id: 1, skill_id: 3, ranks: 2},
+            {traveller_id: 1, skill_id: 4, ranks: 3}
+        ],
+        [
+            {traveller_id: 1, attribute_id: 1, attribute_value: 6, attribute_base_value: 6},
+            {traveller_id: 1, attribute_id: 2, attribute_value: 7, attribute_base_value: 7},
+            {traveller_id: 1, attribute_id: 3, attribute_value: 5, attribute_base_value: 5},
+            {traveller_id: 1, attribute_id: 4, attribute_value: 10, attribute_base_value: 10},
+            {traveller_id: 1, attribute_id: 5, attribute_value: 13, attribute_base_value: 13},
+            {traveller_id: 1, attribute_id: 6, attribute_value: 9, attribute_base_value: 9}
+        ]
+    ];
+
+    of(returnValue)
+        .pipe(
+            EnsureLength(Exception, 3, 1)
+        ).subscribe(res => {
+            expect(res).toBeDefined();
+            done();
+        })
+})
