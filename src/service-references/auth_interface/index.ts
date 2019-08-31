@@ -38,6 +38,7 @@ export namespace Types {
         role_id: number;
         role_name: string;
         description_id?: number;
+        role_default_flag: 'Y' | 'N';
     }
 
     export interface User {

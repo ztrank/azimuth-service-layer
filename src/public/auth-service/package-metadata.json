@@ -1,7 +1,7 @@
 {
     "name": "azimuth-auth-service",
     "importName": "AuthServiceLayer",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author":"ztrank",
     "repository": "",
     "directory": "public"
