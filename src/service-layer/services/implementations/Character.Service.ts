@@ -84,8 +84,8 @@ export class CharacterServiceImpl implements CharacterService {
     public getSophonts(): Observable<Sophont[]> {
         return this.dataLayer.getSophonts()
             .pipe(
-                EnsureLength(this.InternalServerException, 1),
-                map(res => res[0].map(r => new Sophont(r)))
+                EnsureLength(this.InternalServerException, 3),
+                map(res => res[0].map(r => new Sophont(r, res[1], res[2])))
             );
     }
 }

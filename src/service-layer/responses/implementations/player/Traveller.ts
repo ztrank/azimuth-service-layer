@@ -7,15 +7,15 @@ export class Traveller {
     userId: number;
     sophontId: number;
     name: Name;
-    attributes?: TravellerAttribute[];
-    skills?: TravellerSkill[];
+    attributes: TravellerAttribute[];
+    skills: TravellerSkill[];
 
-    public constructor(trav: PlayerInterface.Types.Traveller, attrs?: PlayerInterface.Types.TravellerAttribute[], skills?: PlayerInterface.Types.TravellerSkill[]) {
+    public constructor(trav: PlayerInterface.Types.Traveller, attrs: PlayerInterface.Types.TravellerAttribute[], skills: PlayerInterface.Types.TravellerSkill[]) {
         this.id = trav.traveller_id;
         this.userId = trav.user_id;
         this.sophontId = trav.sophont_id;
-        this.attributes = attrs ? attrs.map(a => new TravellerAttribute(a)) : undefined;
-        this.skills = skills ? skills.map(s => new TravellerSkill(s)) : undefined;
+        this.attributes = attrs.filter(a => a.traveller_id === this.id).map(a => new TravellerAttribute(a));
+        this.skills = skills.filter(s => s.traveller_id === this.id).map(s => new TravellerSkill(s));
         this.name = {
             first: trav.traveller_first_name,
             last: trav.traveller_last_name,

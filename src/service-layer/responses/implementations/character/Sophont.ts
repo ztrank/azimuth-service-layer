@@ -7,15 +7,15 @@ export class Sophont {
     name: string;
     descriptionId: number;
     playable: boolean;
-    attributes?: SophontAttribute[];
-    skills?: SophontSkill[];
+    attributes: SophontAttribute[];
+    skills: SophontSkill[];
 
-    public constructor(soph: CharacterInterface.Types.Sophont, attrs?: CharacterInterface.Types.SophontAttribute[], skills?: CharacterInterface.Types.SophontSkill[]) {
+    public constructor(soph: CharacterInterface.Types.Sophont, attrs: CharacterInterface.Types.SophontAttribute[], skills: CharacterInterface.Types.SophontSkill[]) {
         this.id = soph.sophont_id;
         this.name = soph.sophont_name;
         this.descriptionId = soph.description_id;
         this.playable = soph.sophont_playable_flag === 'Y' ? true : false;
-        this.attributes = attrs ? attrs.map(a => new SophontAttribute(a)) : undefined;
-        this.skills = skills ? skills.map(s => new SophontSkill(s)) : undefined;
+        this.attributes = attrs.filter(a => a.sophont_id === this.id).map(a => new SophontAttribute(a));
+        this.skills = skills.filter(a => a.sophont_id === this.id).map(s => new SophontSkill(s));
     }
 }

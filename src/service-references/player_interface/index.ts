@@ -20,7 +20,7 @@ export namespace Responses {
     export type Void = [];
     export type Id = [Types.Id[]];
     export type Traveller = [Types.Traveller[], Types.TravellerSkill[], Types.TravellerAttribute[]];
-    export type Travellers = [Types.Traveller[]];
+    export type Travellers = [Types.Traveller[], Types.TravellerSkill[], Types.TravellerAttribute[]];
 }
 
 export namespace Types {

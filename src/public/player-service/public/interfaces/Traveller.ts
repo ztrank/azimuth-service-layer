@@ -12,6 +12,6 @@ export interface Traveller {
     userId: number;
     sophontId: number;
     name: Name;
-    attributes?: TravellerAttribute[];
-    skills?: TravellerSkill[];
+    attributes: TravellerAttribute[];
+    skills: TravellerSkill[];
 }

@@ -6,6 +6,6 @@ export interface Sophont {
     name: string;
     descriptionId: number;
     playable: boolean;
-    attributes?: SophontAttribute[];
-    skills?: SophontSkill[]
+    attributes: SophontAttribute[];
+    skills: SophontSkill[]
 }

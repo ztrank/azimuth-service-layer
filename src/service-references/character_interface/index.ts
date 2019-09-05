@@ -27,7 +27,7 @@ export namespace Responses {
     export type Attributes = [Types.Attribute[]];
     export type Skills = [Types.Skill[]];
     export type Sophont = [Types.Sophont[], Types.SophontAttribute[], Types.SophontSkill[]];
-    export type Sophonts = [Types.Sophont[]];
+    export type Sophonts = [Types.Sophont[], Types.SophontAttribute[], Types.SophontSkill[]];
     export type Id = [Types.Id[]];
     export type SkillGroups = [Types.SkillGroup[]];
 }

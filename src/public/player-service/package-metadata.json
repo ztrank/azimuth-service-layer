@@ -1,7 +1,7 @@
 {
     "name": "azimuth-player-service",
     "importName": "PlayerServiceLayer",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author":"ztrank",
     "repository": "https://github.com/ztrank/azimuth-service-layer.git",
     "directory": "public"

@@ -24,8 +24,8 @@ export class TravellerServiceImpl implements TravellerService {
     public getMyTravellers(): Observable<Traveller[]> {
         return this.dataLayer.getMyTravellers(<number>this.context.CurrentUser.id)
             .pipe(
-                EnsureLength(this.NotFoundException, 1),
-                map(res => res[0].map(r => new Traveller(r)))
+                EnsureLength(this.NotFoundException, 3),
+                map(res => res[0].map(r => new Traveller(r, res[2], res[1])))
             );
     }
 
