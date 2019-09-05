@@ -291,7 +291,7 @@ test('getSophonts', (done) => {
             return of([[
                 {sophont_id: 1, sophont_name: 'Human', sophont_playable_flag: 'Y', description_id: 1},
                 {sophont_id: 2, sophont_name: 'Hiver', sophont_playable_flag: 'N', description_id: 2}
-            ]])
+            ], [], []])
         })
     };
     TestContainer.load(withDataLayer(DataLayer));

@@ -36,7 +36,7 @@ test('getMyTravellers', (done) => {
                     traveller_last_name: 'Ajam',
                     traveller_nick_name: 'Raj'
                 }
-            ]])
+            ], [], []])
         })
     };
     TestContainer.load(withDataLayer(DataLayer));
